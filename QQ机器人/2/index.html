@@ -12,6 +12,8 @@
         <link rel="prev" href="../1/">
       
       
+        <link rel="next" href="../3/">
+      
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
@@ -428,6 +430,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        插件编写II
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -519,23 +535,29 @@
 <p>这就表明机器人在收到第一条消息之后，不能立即结束任务，需要挂起等待用户的下一次回应。这种插件对于一般的（非计算机专业）同学来说难度太大，我们的教程中不会讲。</p>
 <p>最后提醒一下，接下来的内容你至少要了解一下 Python 的基本知识才能做。（虽然可以依葫芦画瓢，但是也不能对 Python 完全没有任何了解）</p>
 <h2 id="创建插件文件夹">创建插件文件夹<a class="headerlink" href="#创建插件文件夹" title="Permanent link">&para;</a></h2>
-<p>如果你是按照上一篇教程刚刚开启了机器人的服务，现在应该有两个终端。一个终端运行 go-cqhttp，另一个运行 nonebot。由于我们现在要给 nonebot 加插件，并且运行 nonebot 时使用了 <code>--reload</code> 参数（意思是，持续监测任何文件夹中的变化，一旦有文件发生改变，就重新启动机器人，这是没有必要的），我们现在先把这两个终端都关掉。</p>
-<ul>
-<li>来到 nonebot 的文件夹（new_qq_bot），右键创建一个空的文件夹，命名为 plugins</li>
-</ul>
-<ul>
-<li>右键用 Pluma 打开 <code>pyproject.toml</code>，找到 <code>plugin_dirs</code>，在里面添加我们刚刚创建的插件文件夹名字（注意要加英文引号）</li>
-</ul>
-<p><img alt="image-20231019152948743" src="../2.assets/image-20231019152948743.png" /></p>
-<ul>
-<li>打开终端，输入 <code>nb plugin</code> 命令，选择<strong>创建一个新的插件</strong>，这里为了示例，我们创建一个名为 <code>auto_pull</code> 的插件，一直回车就可以创建完毕</li>
-</ul>
+<p>如果你是按照上一篇教程刚刚开启了机器人的服务，现在应该有两个终端。一个终端运行 go-cqhttp，另一个运行 nonebot。</p>
+<p>由于我们现在要给 nonebot 加插件，并且运行 nonebot 时使用了 <code>--reload</code> 参数（意思是，持续监测任何文件夹中的变化，一旦有文件发生改变，就重新启动机器人，这是没有必要的），我们现在先把这两个终端都关掉。</p>
+<details class="info" open="open">
+<summary>来到 nonebot 的文件夹（new_qq_bot）</summary>
+<p>右键创建一个空的文件夹，命名为 plugins，这就是我们的插件文件夹</p>
+</details>
+<details class="info" open="open">
+<summary>右键用 Pluma 打开 <code>pyproject.toml</code></summary>
+<p>找到 <code>plugin_dirs</code>，在里面添加我们刚刚创建的插件文件夹名字（注意要加英文引号）
+<img alt="image-20231019152948743" src="../2.assets/image-20231019152948743.png" /></p>
+</details>
+<details class="info" open="open">
+<summary>打开终端，输入 <code>nb plugin</code> 命令</summary>
+<p>选择<strong>创建一个新的插件</strong>，这里为了示例，我们创建一个名为 <code>auto_pull</code> 的插件</p>
+<p>一直回车就可以创建完毕</p>
 <p><img alt="image-20231019152403831" src="../2.assets/image-20231019152403831.png" /></p>
 <p><img alt="image-20231019153028751" src="../2.assets/image-20231019153028751.png" /></p>
-<ul>
-<li>完成之后，你会发现刚刚我们创建的 plugins 文件夹中多了你要创建的 <code>auto_pull</code> 插件的文件夹，其中包含两个文件，如图所示</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>完成之后</summary>
+<p>你会发现刚刚我们创建的 plugins 文件夹中多了你要创建的 <code>auto_pull</code> 插件的文件夹，其中包含两个文件，如图所示</p>
 <p><img alt="image-20231019153141652" src="../2.assets/image-20231019153141652.png" /></p>
+</details>
 <details class="question" open="open">
 <summary>我们要创建的这个 auto_pull 插件是做什么的呢？</summary>
 <p>因为我们下面马上要撰写一些其他的插件，也就是说要<strong>写代码</strong>，在虚拟机上写代码由于网速的原因，会比较卡顿，体验不好。</p>
@@ -570,7 +592,7 @@
 <p><img alt="image-20231019160525984" src="../2.assets/image-20231019160525984.png" /></p>
 </details>
 <details class="info">
-<summary>第二步：配置 GitHub 远程仓库</summary>
+<summary>第二步：配置 Gitee 远程仓库</summary>
 <p>由于国内无法访问 GitHub，我们这里用 <a href="https://gitee.com/">Gitee</a>（国产）作为替代。</p>
 <ul>
 <li>注册一个账号，最好是用你刚刚配置 Git 用的邮箱。</li>
@@ -580,9 +602,7 @@
 </li>
 </ul>
 <p><img alt="image-20231019161225661" src="../2.assets/image-20231019161225661.png" /></p>
-<ul>
-<li>只修改两个地方：最上面的仓库名，我设置为 <code>bot_plugins</code>，下面的可见性设置为 Private，点最下方 New 按钮创建</li>
-</ul>
+<p>- 只修改两个地方：最上面的仓库名，我设置为 <code>bot_plugins</code>，下面的可见性设置为 Private，点最下方 New 按钮创建</p>
 <p><img alt="image-20231019161302683" src="../2.assets/image-20231019161302683.png" /></p>
 <ul>
 <li>创建完成后，最上面的 HTTPS/SSH 有一个选项，我们选择 SSH，然后页面中间有如下指令，你可以先打开一个记事本记着（请确保红框内的内容除了用户名和仓库名外与我相同）</li>
@@ -649,9 +669,8 @@
 <h2 id="撰写第一个插件-auto_pull">撰写第一个插件 <code>auto_pull</code><a class="headerlink" href="#撰写第一个插件-auto_pull" title="Permanent link">&para;</a></h2>
 <p>经过上面的配置，现在我们在自己的电脑上就可以撰写插件。</p>
 <p>在 VS Code 中打开刚刚克隆下来的文件夹，我们只需要修改 <code>__init__.py</code> 这个文件就可以了。</p>
-<ul>
-<li>清除里面的所有内容，将我下面写好的代码复制进去就可以了。</li>
-</ul>
+<details class="info" open="open">
+<summary>清除 <code>__init__.py</code> 这个文件的所有内容，将我下面写好的代码复制进去</summary>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">nonebot</span> <span class="kn">import</span> <span class="n">on_keyword</span>
 <span class="kn">from</span> <span class="nn">nonebot.typing</span> <span class="kn">import</span> <span class="n">T_State</span>
 <span class="kn">from</span> <span class="nn">nonebot.adapters.onebot.v11</span> <span class="kn">import</span> <span class="n">PrivateMessageEvent</span><span class="p">,</span> <span class="n">Bot</span>
@@ -699,45 +718,45 @@
     <span class="c1"># 每过10分钟执行一次</span>
     <span class="n">scheduler</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">periodic</span><span class="p">,</span> <span class="s2">&quot;cron&quot;</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="s1">&#39;*/10&#39;</span><span class="p">,</span> <span class="n">misfire_grace_time</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 </code></pre></div>
-<ul>
-<li>
-<p>这里面有三个地方你可能需要更改：</p>
-<ol>
-<li><code>admin_user = 1025890895</code>，需要填你自己的 QQ 号（不是机器人的），机器人只会对这个 QQ 号发来的消息做回应</li>
-<li><code>repo_directory = "/home/ubuntu/Desktop/new_qq_bot/plugins"</code>，需要你改成虚拟机上插件的真实位置（如果你是跟着我做的，可能只有这个项目名 new_qq_bot 需要改一下）</li>
-<li>最后一句 <code>minute='*/10'</code>，表示每 10 分钟执行一次，你可以自己改成想要的时间，或者直接把这个 if 语句块删了，只允许手动执行</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>修改好后，保存，在 VS Code 左侧提交并同步更改，等待同步完成。</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>有三个地方可能需要更改</summary>
+<p>1. <code>admin_user = 1025890895</code>，需要填你自己的 QQ 号（不是机器人的），机器人只会对这个 QQ 号发来的消息做回应</p>
+<p>2. <code>repo_directory = "/home/ubuntu/Desktop/new_qq_bot/plugins"</code>，需要你改成虚拟机上插件的真实位置（如果你是跟着我做的，可能只有这个项目名 new_qq_bot 需要改一下）</p>
+<p>3. 最后一句 <code>minute='*/10'</code>，表示每 10 分钟执行一次，你可以自己改成想要的时间，或者直接把这个 if 语句块删了，只允许手动执行</p>
+</details>
+<details class="info" open="open">
+<summary>修改好后，保存，在 VS Code 左侧提交并同步更改，等待同步完成</summary>
 <p><img alt="image-20231019172434873" src="../2.assets/image-20231019172434873.png" /></p>
-<ul>
-<li>现在，转到虚拟机上面，在插件文件夹下手动运行一次 <code>git pull</code>。</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>现在，转到虚拟机上面，在插件文件夹下手动运行一次 <code>git pull</code></summary>
 <p><img alt="image-20231019172623687" src="../2.assets/image-20231019172623687.png" /></p>
+</details>
+<details class="info" open="open">
+<summary>然后输入 <code>cd ..</code>（两个点）回到上级，输入 <code>nb plugin</code>，选择<strong>安装插件到当前项目</strong></summary>
 <ul>
-<li>然后输入 <code>cd ..</code>（两个点）回到上级，输入 <code>nb plugin</code>，选择<strong>安装插件到当前项目</strong><ul>
 <li>这是因为我们的插件中有定时的操作，依赖于商店中一个名为定时器的插件，我们需要从商店中安装这个插件（名字叫 <code>nonebot_plugin_apscheduler</code>）</li>
 <li>不是说我们自己写的插件也需要这样才能安装，这只是从商店安装别人写好的插件！</li>
 </ul>
-</li>
-</ul>
 <p><img alt="image-20231019172748757" src="../2.assets/image-20231019172748757.png" /></p>
 <p><img alt="image-20231019172944694" src="../2.assets/image-20231019172944694.png" /></p>
-<ul>
-<li>安装好后，按照之前说的方法，启动 nonebot 和 go-cqhttp，打开服务</li>
-<li>给 Bot 私聊发消息（pull），如果收到回复，表示这个流程就对了</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>安装好后</summary>
+<p>按照之前说的方法，启动 nonebot 和 go-cqhttp，打开服务</p>
+</details>
+<details class="info" open="open">
+<summary>给 Bot 私聊发消息（pull），如果收到回复，表示这个流程就对了</summary>
 <p><img alt="image-20231019173406849" src="../2.assets/image-20231019173406849.png" /></p>
+</details>
+<details class="info" open="open">
+<summary>你还可以再看一眼虚拟机中的 nonebot 终端，会输出 pull 的执行结果</summary>
 <ul>
-<li>你还可以再看一眼虚拟机中的 nonebot 终端，会输出 pull 的执行结果<ul>
-<li>这里因为我没有对远程仓库做任何更改，所以执行的结果是提示<strong>已经是最新的。</strong></li>
+<li>这里因为我没有对远程仓库做任何更改，所以执行的结果是提示<strong>已经是最新的。</strong>
+<img alt="image-20231019173443213" src="../2.assets/image-20231019173443213.png" /></li>
 </ul>
-</li>
-</ul>
-<p><img alt="image-20231019173443213" src="../2.assets/image-20231019173443213.png" /></p>
+</details>
 <h2 id="今后如何撰写插件">今后如何撰写插件<a class="headerlink" href="#今后如何撰写插件" title="Permanent link">&para;</a></h2>
 <ul>
 <li>今后，你在自己的电脑上撰写插件即可<ul>
@@ -749,7 +768,7 @@
 <li>撰写完毕后，提交同步远程仓库</li>
 <li>给你的机器人账号私聊发消息 pull，等待告知更新成功还是失败</li>
 </ul>
-<p>总而言之，如果遵循这套流程，就不用管虚拟机了。</p>
+<p>总而言之，如果遵循这套流程，就不用怎么管虚拟机了。</p>
 <blockquote>
 <p>然而 Debug 的时候可能还是需要上去，请注意不要在虚拟机上直接修改插件代码，只能在你自己的电脑上修改，否则会出乱子。</p>
 <p>如果你是 Git 高手，应该知道这个乱子怎么解决，不过这个教程大多面向不怎么会 Git 的同学，就不赘述了，从表面上解决这个问题比较好。</p>

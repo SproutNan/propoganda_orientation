@@ -451,6 +451,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        插件编写II
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -562,163 +576,202 @@
 </ul>
 </li>
 </ul>
+<details class="warning" open="open">
+<summary>阅读建议</summary>
+<p>下面的内容涉及大量的按步骤操作，为了避免大家跳步，造成疑惑，每个小步骤我都用提示框的形式给出，同学们做完一个步骤之后，就可以关闭提示框以标记。</p>
+<p>注意：刷新页面后，所有的提示框状态都会被重置。</p>
+</details>
 <h2 id="创建新的虚拟机">创建新的虚拟机<a class="headerlink" href="#创建新的虚拟机" title="Permanent link">&para;</a></h2>
-<p>Step 1: 登录我校 <a href="https://vlab.ustc.edu.cn">Vlab</a> 网站，点击<strong>虚拟机管理</strong></p>
+<details class="info" open="open">
+<summary>Step 1: 登录我校 <a href="https://vlab.ustc.edu.cn">Vlab</a> 网站</summary>
+<p>点击<strong>虚拟机管理</strong></p>
 <p><img alt="image-20231019143622350" src="../1.assets/image-20231019143622350.png" /></p>
-<p>Step 2: 选择<strong>创建一个新的虚拟机</strong>，镜像选择默认即可（下面用于演示的系统版本是 Ubuntu 22.04 LTS）</p>
-<p>Step 3: 等待几分钟，让虚拟机完成初始化，你可以刷新页面，直到出现一排蓝色的按钮，点<strong>开机</strong></p>
-<p>Step 4: 开机之后，点击<strong>网页桌面登录</strong>，即可连接到虚拟机桌面</p>
+</details>
+<details class="info" open="open">
+<summary>Step 2: 选择<strong>创建一个新的虚拟机</strong></summary>
+<p>镜像选择默认即可（下面用于演示的系统版本是 Ubuntu 22.04 LTS）</p>
+</details>
+<details class="info" open="open">
+<summary>Step 3: 等待几分钟，让虚拟机完成初始化</summary>
+<p>你可以刷新页面，直到出现一排蓝色的按钮，点<strong>开机</strong></p>
+</details>
+<details class="info" open="open">
+<summary>Step 4: 开机之后，点击<strong>网页桌面登录</strong>，即可连接到虚拟机桌面</summary>
 <p><img alt="image-20231019143655030" src="../1.assets/image-20231019143655030.png" /></p>
+</details>
 <h2 id="安装必要的软件包">安装必要的软件包<a class="headerlink" href="#安装必要的软件包" title="Permanent link">&para;</a></h2>
 <p>我们使用命令行工具来安装软件包。如果同学没接触过也不要害怕，照着文章说的做就可以了。</p>
-<ul>
-<li>
-<p>在桌面上空白处右键，选择<strong>在终端中打开</strong></p>
+<details class="warning" open="open">
+<summary>在桌面上空白处右键，选择<strong>在终端中打开</strong></summary>
 <p><img alt="image-20231019130650681" src="../1.assets/image-20231019130650681.png" /></p>
-</li>
-</ul>
-<ul>
-<li>输入 <code>sudo apt update</code> 命令，更新软件源</li>
-</ul>
+<p>这个步骤很重要，请牢记。</p>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>sudo apt update</code> 命令，更新软件源</summary>
 <p><img alt="image-20231019123810680" src="../1.assets/image-20231019123810680.png" /></p>
-<ul>
-<li>输入 <code>sudo apt upgrade</code> 命令，更新软件包</li>
-</ul>
-<p><img alt="image-20231019123839928" src="../1.assets/image-20231019123839928.png" /></p>
-<p><img alt="image-20231019123858378" src="../1.assets/image-20231019123858378.png" /></p>
-<ul>
-<li>输入 <code>sudo apt install python3-pip</code> 命令，安装 pip</li>
-</ul>
-<ul>
-<li>输入 <code>python3 -m pip install --user pipx</code> 命令，安装 pipx</li>
-<li>输入 <code>python3 -m pipx ensurepath</code> 命令，配置环境</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>sudo apt upgrade</code> 命令，更新软件包</summary>
+<p><img alt="image-20231019123839928" src="../1.assets/image-20231019123839928.png" />
+<img alt="image-20231019123858378" src="../1.assets/image-20231019123858378.png" /></p>
+<p>出现[Y\n]直接回车即可</p>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>sudo apt install python3-pip</code> 命令，安装 pip</summary>
+<p>这里没有图片！</p>
+</details>
+<details class="info" open="open">
+<summary>安装 pipx</summary>
+<p>输入 <code>python3 -m pip install --user pipx</code> 命令，安装 pipx</p>
+<p>输入 <code>python3 -m pipx ensurepath</code> 命令，配置环境</p>
 <p><img alt="image-20231019124048690" src="../1.assets/image-20231019124048690.png" /></p>
 <p><img alt="image-20231019124502732" src="../1.assets/image-20231019124502732.png" /></p>
-<ul>
-<li>输入 <code>pip install nb-cli</code> 命令安装 Bot 脚手架</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>pip install nb-cli</code> 命令安装 Bot 脚手架</summary>
 <p><img alt="image-20231019124526002" src="../1.assets/image-20231019124526002.png" /></p>
-<ul>
-<li>输入 <code>sudo apt install git</code> 安装 git</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>sudo apt install git</code> 安装 git</summary>
 <p><img alt="image-20231019124701313" src="../1.assets/image-20231019124701313.png" /></p>
-<ul>
-<li>输入 <code>git clone https://github.com/nonebot/nonebot2.git</code> 克隆 Bot 软件包到本地，执行完成后，桌面上应该会多出一个名为 <code>nonebot2</code> 的文件夹</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>git clone https://github.com/nonebot/nonebot2.git</code> 克隆 Bot 软件包到本地</summary>
 <p><img alt="image-20231019124735152" src="../1.assets/image-20231019124735152.png" /></p>
-<ul>
-<li>输入 <code>cd nonebot2</code> 命令，跳转到文件夹内</li>
-<li>输入 <code>pip install .</code> 命令，安装 Bot 软件包</li>
-</ul>
+<p>执行完成后，桌面上应该会多出一个名为 <code>nonebot2</code> 的文件夹</p>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>cd nonebot2</code> 命令，跳转到文件夹内</summary>
+<p>这里没有图片！</p>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>pip install .</code> 命令，安装 Bot 软件包</summary>
 <p><img alt="image-20231019124816871" src="../1.assets/image-20231019124816871.png" /></p>
-<ul>
-<li>关闭当前终端，在桌面空白处重新启动终端</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>关闭当前终端，在桌面空白处重新启动终端</summary>
+<p>这里没有图片！</p>
+</details>
 <h2 id="创建-bot-项目">创建 Bot 项目<a class="headerlink" href="#创建-bot-项目" title="Permanent link">&para;</a></h2>
-<ul>
-<li>在重新启动的终端中，输入 <code>nb</code> 命令</li>
-</ul>
-<ul>
-<li>出现如下界面，确保箭头指向<strong>创建一个 NoneBot 项目</strong>，按回车确认</li>
-</ul>
+<details class="info" open="open">
+<summary>在重新启动的终端中，输入 <code>nb</code> 命令</summary>
+<p>出现如下界面，确保箭头指向<strong>创建一个 NoneBot 项目</strong>，按回车确认</p>
 <p><img alt="image-20231019124952807" src="../1.assets/image-20231019124952807.png" /></p>
-<ul>
-<li>选择模板：<code>bootstrap</code></li>
-</ul>
-<ul>
-<li>项目名称：自己制指定，我填了 new_qq_bot，注意这里不要使用空格和中文，简单的英文字符就可以了</li>
-</ul>
-<ul>
-<li>选择驱动器：使用鼠标上下键移动，按空格选择，按回车确认，确保状态和下方截图一样</li>
-</ul>
+<p>选择模板：<code>bootstrap</code></p>
+<p>项目名称：自己指定，我填了 new_qq_bot，注意这里不要使用空格和中文，简单的英文字符就可以了</p>
+</details>
+<details class="info" open="open">
+<summary>选择驱动器</summary>
+<p>使用鼠标上下键移动，按空格选择，按回车确认，确保状态和下方截图一样</p>
 <p><img alt="image-20231019125135463" src="../1.assets/image-20231019125135463.png" /></p>
-<ul>
-<li>选择适配器：仅选择 OneBot V11 这个适配器</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>选择适配器</summary>
+<p>仅选择 OneBot V11 这个适配器</p>
 <p><img alt="image-20231019125205802" src="../1.assets/image-20231019125205802.png" /></p>
-<ul>
-<li>之后一直回车，直到询问使用什么插件，选择 echo 这个插件，回车确认，之后就会提示完成创建</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>之后一直回车，直到询问使用什么插件</summary>
+<p>选择 echo 这个插件，回车确认，之后就会提示完成创建</p>
 <p><img alt="image-20231019125253335" src="../1.assets/image-20231019125253335.png" /></p>
-<ul>
-<li>打开桌面上的 new_qq_bot 文件夹，里面的内容如图（如果有的看不到，请在文件夹工具栏<strong>视图(V)</strong>中选择<strong>显示隐藏文件</strong>）</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>打开桌面上的 new_qq_bot 文件夹</summary>
+<p>里面的内容如图（如果有的看不到，请在文件夹工具栏<strong>视图(V)</strong>中选择<strong>显示隐藏文件</strong>）</p>
 <p><img alt="image-20231019132042384" src="../1.assets/image-20231019132042384.png" /></p>
-<ul>
-<li>回到刚刚的终端，输入 <code>cd new_qq_bot</code> 命令，进入 Bot 项目</li>
-<li>输入 <code>nb run --reload</code> 命令，开启 Bot，出现下面的状态就是以上步骤都 OK 了</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>回到刚刚的终端，输入 <code>cd new_qq_bot</code> 命令，进入 Bot 项目</summary>
+<p>这里没有图片！</p>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>nb run --reload</code> 命令，开启 Bot，出现下面的状态就是以上步骤都 OK 了</summary>
 <p><img alt="image-20231019132539977" src="../1.assets/image-20231019132539977.png" /></p>
-<ul>
-<li>关闭终端</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>关闭终端</summary>
+<p>这里没有图片！</p>
+</details>
 <h2 id="安装-go-cqhttp">安装 go-cqhttp<a class="headerlink" href="#安装-go-cqhttp" title="Permanent link">&para;</a></h2>
 <p>就好像你在电脑上要安装 QQ 这个软件才能登陆 QQ 一样，Bot 也需要。不过 Bot 不需要那么多花里胡哨的功能，你可以把 go-cqhttp 看作是一个更小的 QQ 客户端。</p>
-<ul>
-<li>从左上角<strong>应用程序-互联网</strong>打开 FireFox 浏览器，在地址栏输入 <code>https://github.com/Mrs4s/go-cqhttp/releases</code>（注意：虚拟机和你的电脑是两台机器，你在自己电脑上复制的网址无法粘贴到虚拟机内，请手动输入）</li>
-</ul>
-<ul>
-<li>向下滑动，找到 Assets，点击 <code>go-cqhttp_x.x.x_linux_amd64.deb</code> 下载（请注意是 amd64 不是 arm64）</li>
-</ul>
+<details class="info" open="open">
+<summary>从左上角<strong>应用程序-互联网</strong>打开 FireFox 浏览器</summary>
+<p>在地址栏输入 <code>https://github.com/Mrs4s/go-cqhttp/releases</code></p>
+<p>注意：虚拟机和你的电脑是两台机器，你在自己电脑上复制的网址无法粘贴到虚拟机内，请手动输入</p>
+</details>
+<details class="info" open="open">
+<summary>向下滑动，找到 Assets</summary>
+<p>点击 <code>go-cqhttp_x.x.x_linux_amd64.deb</code> 下载（请注意是 amd64 不是 arm64）</p>
 <p><img alt="image-20231019134123898" src="../1.assets/image-20231019134123898.png" /></p>
-<ul>
-<li>点击浏览器右侧的文件按钮，来到文件下载的位置 Downloads 文件夹，在这个文件夹空白处右键打开终端</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>点击浏览器右侧的文件按钮，来到文件下载的位置 Downloads 文件夹</summary>
+<p>在这个文件夹空白处右键打开终端</p>
 <p><img alt="image-20231019134247555" src="../1.assets/image-20231019134247555.png" /></p>
-<ul>
-<li>输入 <code>sudo dpkg -i go-cqhttp_x.x.x_linux_amd64.deb</code> 命令，安装软件包（小技巧，输入 <code>-i</code> 之后，输入一个 <code>g</code> 再按一下 tab 键，就会自动匹配完整的文件名）</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>输入 <code>sudo dpkg -i go-cqhttp_x.x.x_linux_amd64.deb</code> 命令，安装软件包</summary>
+<p>小技巧: 输入 <code>-i</code> 之后，输入一个 <code>g</code> 再按一下 tab 键，就会自动匹配完整的文件名</p>
 <p><img alt="image-20231019134449483" src="../1.assets/image-20231019134449483.png" /></p>
-<ul>
-<li>关闭终端，在桌面重新启动终端，输入 <code>go-cqhttp</code> 命令，输入 3，然后回车。此时发现桌面上多了一个名为 <code>config.yml</code> 的文件</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>关闭终端，在桌面重新启动终端</summary>
+<p>输入 <code>go-cqhttp</code> 命令，输入 3，然后回车</p>
+<p>之后，发现桌面上多了一个名为 <code>config.yml</code> 的文件</p>
 <p><img alt="image-20231019134847528" src="../1.assets/image-20231019134847528.png" /></p>
-<ul>
-<li>在桌面上找到这个文件，右键选择<strong>使用 Pluma 打开</strong>（如果没有，就点击<strong>使用其他程序打开</strong>，然后找到 Pluma）</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>在桌面上找到这个文件，右键选择<strong>使用 Pluma 打开</strong></summary>
+<p>如果没有，就点击<strong>使用其他程序打开</strong>，然后找到 Pluma</p>
 <p><img alt="image-20231019135025739" src="../1.assets/image-20231019135025739.png" /></p>
-<p><img alt="image-20231019135101157" src="../1.assets/image-20231019135101157.png" /></p>
+</details>
+<details class="info" open="open">
+<summary>需要修改的地方：</summary>
 <ul>
-<li>需要修改的地方：<ul>
 <li>把 uin 改成用于 Bot 的 QQ 账号，在下方 password 字段的引号中输入你的密码</li>
 <li>往下滑，找到 sign-servers，将 url 改成 <code>'https://qsign.loli.vet'</code>（这是某人搭建的签名服务器，不一定总是可用，如果不可用请报告此问题）</li>
-<li>再往下滑，找到 ws-reverse 下的 universal，改成 <code>ws://127.0.0.1:8080/onebot/v11/ws</code></li>
+<li>再往下滑，找到 ws-reverse 下的 universal，改成 <code>ws://127.0.0.1:8080/onebot/v11/ws</code>
+<img alt="image-20231019135101157" src="../1.assets/image-20231019135101157.png" />
+<img alt="image-20231019135828195" src="../1.assets/image-20231019135828195.png" /></li>
 </ul>
-</li>
-</ul>
-<p><img alt="image-20231019135828195" src="../1.assets/image-20231019135828195.png" /></p>
-<ul>
-<li>保存并关闭 <code>config.yml</code>，在桌面重新启动终端，输入 <code>go-cqhttp</code> 命令</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>保存并关闭 <code>config.yml</code>，在桌面重新启动终端，输入 <code>go-cqhttp</code> 命令</summary>
 <p><img alt="image-20231019140630234" src="../1.assets/image-20231019140630234.png" /></p>
-<ul>
-<li>等待一段时间后，会出现如上内容，需要你填滑条验证码，这里我们选择 1，自动提交（输入 1 并回车），然后就会给我们一个链接，按住键盘上的 ctrl，点一下这个链接做一下验证码</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>等待一段时间后，会出现如上内容，需要你填滑条验证码</summary>
+<p>这里我们选择 1，自动提交（输入 1 并回车），然后就会给我们一个链接，按住键盘上的 ctrl，点一下这个链接做一下验证码</p>
 <p><img alt="image-20231019141333916" src="../1.assets/image-20231019141333916.png" /></p>
-<ul>
-<li>在浏览器做完验证码后，回到终端，稍等几秒，如果出现 <code>token 已更新……</code> 信息就是验证成功了</li>
-<li>我这边接着还出现了一个设备锁验证，我们选择发送短信验证码验证即可</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>在浏览器做完验证码后，回到终端</summary>
+<p>稍等几秒，如果出现 <code>token 已更新……</code> 信息就是验证成功了</p>
+</details>
+<details class="info" open="open">
+<summary>我这边接着还出现了一个设备锁验证，我们选择发送短信验证码验证即可</summary>
 <p><img alt="image-20231019140904093" src="../1.assets/image-20231019140904093.png" /></p>
-<ul>
-<li>短信验证码输入完毕后，如果出现上图所示的 <code>登录成功</code>，并且开始一直弹下面这两行报警，就说明登录成功了！现在可以关闭终端。</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>短信验证码输入完毕后，如果出现上图所示的 <code>登录成功</code>，并且开始一直弹下面这两行报警，就说明登录成功了！现在可以关闭终端。</summary>
 <p><img alt="image-20231019141013346" src="../1.assets/image-20231019141013346.png" /></p>
+</details>
 <h2 id="开启服务">开启服务<a class="headerlink" href="#开启服务" title="Permanent link">&para;</a></h2>
 <p>现在有了之前安装的 nonebot 框架和 go-cqhttp 框架，我们就可以开启机器人的服务了。为此，我们需要打开两个终端，你可以按照下面的步骤走：</p>
-<ul>
-<li>在桌面空白处右键打开终端，输入 <code>go-cqhttp</code> 命令；正常运行的标志是一直弹出上文所示的两行报警</li>
-</ul>
+<details class="info" open="open">
+<summary>在桌面空白处右键打开终端，输入 <code>go-cqhttp</code> 命令</summary>
+<p>正常运行的标志是一直弹出上文所示的两行报警</p>
 <p><img alt="image-20231019141454506" src="../1.assets/image-20231019141454506.png" /></p>
-<ul>
-<li>在桌面的机器人项目文件夹（这里是 new_qq_bot）中空白处右键打开终端，输入 <code>nb run --reload</code> 命令；正常运行的标志是出现 <code>connection open</code>，并且之前那个终端不再一直弹报警，而是开始输出收到的 QQ 消息</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>在桌面的机器人项目文件夹（这里是 new_qq_bot）中空白处右键打开另一个终端，输入 <code>nb run --reload</code> 命令</summary>
+<p>正常运行的标志是出现 <code>connection open</code>，并且之前那个终端不再一直弹报警，而是开始输出收到的 QQ 消息</p>
 <p><img alt="image-20231019141539567" src="../1.assets/image-20231019141539567.png" /></p>
-<ul>
-<li>用你的 QQ 大号给 Bot 账号发个消息 <code>/echo 1</code> 测试，如果接到回复就是成功了！</li>
-</ul>
+</details>
+<details class="info" open="open">
+<summary>用你的 QQ 大号给 Bot 账号发个消息 <code>/echo 1</code> 测试，如果接到回复就是成功了！</summary>
 <p><img alt="image-20231019141856139" src="../1.assets/image-20231019141856139.png" /></p>
+</details>
 <p>现在你肯定还有疑问，那么多自动化功能是怎么实现的呢？我们现在安装的 Bot 只具备最简单的 echo 回响功能，如果要给机器人增加功能，需要我们自己编写<strong>插件</strong>（或者在商店中下载自己喜欢的插件）。</p>
 <p>因为我们的功能比较专，所以都是以自己编写插件为主。自己编写插件需要一定的 Python 编程基础，我接下来也会给一些示例，如果没有 Python 编程基础又想要实现类似的功能，就直接复制粘贴修改里面的具体信息就行。</p>
 <p>（撰写：黄瑞轩）</p>
