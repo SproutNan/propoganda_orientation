@@ -1,0 +1,730 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+    
+    
+      
+        <title>插件编写 I - 学生骨干宣传能力培养计划</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://101.ustclug.org/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="green">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#插件编写-i" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="学生骨干宣传能力培养计划" class="md-header__button md-logo" aria-label="学生骨干宣传能力培养计划" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            学生骨干宣传能力培养计划
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              插件编写 I
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="学生骨干宣传能力培养计划" class="md-nav__button md-logo" aria-label="学生骨干宣传能力培养计划" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    学生骨干宣传能力培养计划
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          微信推送
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          微信推送
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%BE%AE%E4%BF%A1%E6%8E%A8%E9%80%81/1/" class="md-nav__link">
+        从Word到推送
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%BE%AE%E4%BF%A1%E6%8E%A8%E9%80%81/2/" class="md-nav__link">
+        秀米其他功能
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%BE%AE%E4%BF%A1%E6%8E%A8%E9%80%81/3/" class="md-nav__link">
+        使用交互组件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%BE%AE%E4%BF%A1%E6%8E%A8%E9%80%81/4/" class="md-nav__link">
+        微信公众平台
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%BE%AE%E4%BF%A1%E6%8E%A8%E9%80%81/5/" class="md-nav__link">
+        好东西与坏品味I
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../微信推送/6.md" class="md-nav__link">
+        好东西与坏品味II
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          QQ机器人
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          QQ机器人
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        开始搭建
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#创建插件文件夹" class="md-nav__link">
+    创建插件文件夹
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#撰写第一个插件-auto_pull" class="md-nav__link">
+    撰写第一个插件 auto_pull
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#今后如何撰写插件" class="md-nav__link">
+    今后如何撰写插件
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="插件编写-i">插件编写 I<a class="headerlink" href="#插件编写-i" title="Permanent link">&para;</a></h1>
+<p>前文说到，要想实现功能就得制作一个个单独的插件。我把插件分为两类：</p>
+<ol>
+<li>根据用户发来的一条消息，可以立即根据一定的逻辑进行运算，然后给出输出<ul>
+<li>比如，给机器人发送指定的消息，它能够按照简单的逻辑计算出今天的年月日信息，并发送给用户</li>
+</ul>
+</li>
+<li>根据用户发来的一条消息，还需要<strong>本地提供的一些状态数据</strong>才能进行运算、给出输出<ul>
+<li>比如，给机器人发送指定的消息，它需要查看本地的某个文件中保存的信息（比如，创建这个机器人的年月日），然后根据逻辑计算出这个机器人已经运转了多少天，并发送给用户</li>
+<li>本地的状态数据可以是一个个的文件，也可以是数据库（如使用 MySQL，使用数据库更为安全），所以这种插件写起来难度还是比较大的</li>
+</ul>
+</li>
+</ol>
+<p>还有更复杂的，需要类似对话的过程才能完成的插件，如：</p>
+<ul>
+<li>用户：一年的第 114 天是星期几？</li>
+<li>机器人：今年是哪一年？</li>
+<li>用户：2023</li>
+<li>机器人：2023 年的第 114 天是星期 X</li>
+</ul>
+<p>这就表明机器人在收到第一条消息之后，不能立即结束任务，需要挂起等待用户的下一次回应。这种插件对于一般的（非计算机专业）同学来说难度太大，我们的教程中不会讲。</p>
+<p>最后提醒一下，接下来的内容你至少要了解一下 Python 的基本知识才能做。（虽然可以依葫芦画瓢，但是也不能对 Python 完全没有任何了解）</p>
+<h2 id="创建插件文件夹">创建插件文件夹<a class="headerlink" href="#创建插件文件夹" title="Permanent link">&para;</a></h2>
+<p>如果你是按照上一篇教程刚刚开启了机器人的服务，现在应该有两个终端。一个终端运行 go-cqhttp，另一个运行 nonebot。由于我们现在要给 nonebot 加插件，并且运行 nonebot 时使用了 <code>--reload</code> 参数（意思是，持续监测任何文件夹中的变化，一旦有文件发生改变，就重新启动机器人，这是没有必要的），我们现在先把这两个终端都关掉。</p>
+<ul>
+<li>来到 nonebot 的文件夹（new_qq_bot），右键创建一个空的文件夹，命名为 plugins</li>
+</ul>
+<ul>
+<li>右键用 Pluma 打开 <code>pyproject.toml</code>，找到 <code>plugin_dirs</code>，在里面添加我们刚刚创建的插件文件夹名字（注意要加英文引号）</li>
+</ul>
+<p><img alt="image-20231019152948743" src="../2.assets/image-20231019152948743.png" /></p>
+<ul>
+<li>打开终端，输入 <code>nb plugin</code> 命令，选择<strong>创建一个新的插件</strong>，这里为了示例，我们创建一个名为 <code>auto_pull</code> 的插件，一直回车就可以创建完毕</li>
+</ul>
+<p><img alt="image-20231019152403831" src="../2.assets/image-20231019152403831.png" /></p>
+<p><img alt="image-20231019153028751" src="../2.assets/image-20231019153028751.png" /></p>
+<ul>
+<li>完成之后，你会发现刚刚我们创建的 plugins 文件夹中多了你要创建的 <code>auto_pull</code> 插件的文件夹，其中包含两个文件，如图所示</li>
+</ul>
+<p><img alt="image-20231019153141652" src="../2.assets/image-20231019153141652.png" /></p>
+<details class="question" open="open">
+<summary>我们要创建的这个 auto_pull 插件是做什么的呢？</summary>
+<p>因为我们下面马上要撰写一些其他的插件，也就是说要<strong>写代码</strong>，在虚拟机上写代码由于网速的原因，会比较卡顿，体验不好。</p>
+<p>接下来，我们将使用 Git 和 GitHub 来实现一个功能：我们在自己的电脑上写代码，写好代码之后上传到一个 GitHub 远程仓库，这个插件会在我们的虚拟机上尝试从远程仓库拉取最新的代码（可以是我们手动给机器人发消息让它拉取，也可以是每隔1分钟自动拉取一次）。</p>
+<p>如果我们传了一版最新的代码，这个插件就会将最新的代码覆盖之前的旧代码。还记得之前我们说的 <code>--reload</code> 参数会监视文件的更改吗？插件将文件覆盖之后，nonebot 就会因为检测到文件更改而自动重启，使得我们的更改生效。</p>
+<p>从外观上看，我们的工作流就变成了：在本地写代码 — 提交代码到远程仓库 — 发消息给机器人让它下载最新的代码。</p>
+<p>不过，这里又有一大堆的东西要配置了。程序员的思维就是宁愿花一些时间去做自动化的准备，也不愿意一直手动做可以自动化的工作。</p>
+</details>
+<details class="info">
+<summary>第一步：配置 Git</summary>
+<p>时时刻刻要记住虚拟机和你的电脑是两台不同的设备，他们之间安装的软件等都是不互通的。我们刚刚在虚拟机上安装了 Git，不过还没有设置用户名和邮箱。</p>
+<ul>
+<li>打开虚拟机终端，输入 <code>git config --global user.name "Your Name"</code> 命令（引号内改成你的真实英文名字）</li>
+<li>然后输入 <code>git config --global user.email "email@example.com"</code> 命令（引号内改成你的真实邮箱）</li>
+</ul>
+<ul>
+<li>现在转到我们自己的电脑，可能是 Windows，也可能是 macOS，你可以看<a href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496">这篇教程</a>，根据自己的系统类型进行安装</li>
+<li>安装完成后，自己电脑上的终端（我是 Windows 11 系统，在桌面空白处右键选择<strong>在终端中打开</strong>）输入 <code>git</code> 命令，如果出现下面这张图就表示还没安装 Git</li>
+</ul>
+<p><img alt="image-20231019160013302" src="../2.assets/image-20231019160013302.png" /></p>
+<ul>
+<li>安装 Git，注意，安装时除了安装的路径外，其他全部默认，一直点下一步就行！</li>
+</ul>
+<p><img alt="image-20231019160109530" src="../2.assets/image-20231019160109530.png" /></p>
+<ul>
+<li>安装完成之后，关闭终端重新启动，再输入 <code>git</code> 命令，发现不再报错了，而是跳出使用手册，就说明安装成功</li>
+</ul>
+<p><img alt="image-20231019160349174" src="../2.assets/image-20231019160349174.png" /></p>
+<ul>
+<li>按照之前的步骤设置用户名和邮箱</li>
+</ul>
+<p><img alt="image-20231019160525984" src="../2.assets/image-20231019160525984.png" /></p>
+</details>
+<details class="info">
+<summary>第二步：配置 GitHub 远程仓库</summary>
+<p>由于国内无法访问 GitHub，我们这里用 <a href="https://gitee.com/">Gitee</a>（国产）作为替代。</p>
+<ul>
+<li>注册一个账号，最好是用你刚刚配置 Git 用的邮箱。</li>
+<li>注册后登录，点击右上角的 + 号，新建一个 Repository（简称 Repo）<ul>
+<li>我的系统是英文的，你只需要点击对应的中文按钮就行</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20231019161225661" src="../2.assets/image-20231019161225661.png" /></p>
+<ul>
+<li>只修改两个地方：最上面的仓库名，我设置为 <code>bot_plugins</code>，下面的可见性设置为 Private，点最下方 New 按钮创建</li>
+</ul>
+<p><img alt="image-20231019161302683" src="../2.assets/image-20231019161302683.png" /></p>
+<ul>
+<li>创建完成后，最上面的 HTTPS/SSH 有一个选项，我们选择 SSH，然后页面中间有如下指令，你可以先打开一个记事本记着（请确保红框内的内容除了用户名和仓库名外与我相同）</li>
+</ul>
+<p><img alt="image-20231019165012932" src="../2.assets/image-20231019165012932.png" /></p>
+<ul>
+<li>
+<p>之前我们把仓库设置为 Private，那么远程仓库怎么知道你是你呢？我们需要给自己的电脑以及虚拟机都创建一个钥匙，这之中具体的原理你有兴趣可以自己上网搜索，我这里就按部就班给出教程了</p>
+<ul>
+<li>在自己的电脑上打开终端，输入 <code>ssh-keygen -t rsa -C "Your email"</code> 命令，然后一直回车即可创建，记得把邮箱改成你自己的</li>
+</ul>
+<p><img alt="image-20231019162225468" src="../2.assets/image-20231019162225468.png" /></p>
+<ul>
+<li>看到上方红框框起来的地址了吗？复制它，在终端中输入 <code>cat C:\Users\v-ruihuang/.ssh/id_rsa.pub</code>，就会弹出一长串以你的邮箱结尾的内容，复制全部</li>
+</ul>
+<p><img alt="image-20231019162432467" src="../2.assets/image-20231019162432467.png" /></p>
+<ul>
+<li>回到 Gitee，右上角头像-设置，左边找到 <strong>SSH Keys</strong> 这个选项</li>
+</ul>
+<p><img alt="image-20231019162619440" src="../2.assets/image-20231019162619440.png" /></p>
+<p><img alt="image-20231019162630763" src="../2.assets/image-20231019162630763.png" /></p>
+<ul>
+<li>给 Key 起个名字（<code>bot_local_rsa</code>），填写刚刚复制的内容，点击 submit</li>
+</ul>
+<p><img alt="image-20231019162738407" src="../2.assets/image-20231019162738407.png" /></p>
+<ul>
+<li>输入密码验证，即添加成功</li>
+<li>现在，转到虚拟机上，执行同样的步骤</li>
+</ul>
+<p><img alt="image-20231019163251899" src="../2.assets/image-20231019163251899.png" /></p>
+<p><img alt="image-20231019163328964" src="../2.assets/image-20231019163328964.png" /></p>
+<ul>
+<li>把虚拟机上的 Key 复制出来，在虚拟机网页的左侧有个工具栏，点一下，选择第二个按钮，就可以看到虚拟机中此时的剪贴板有什么内容，可以复制出来，在刚刚本机的电脑打开的 Gitee 页面里添加，省的在两个地方都要登录 Gitee，麻烦</li>
+</ul>
+<p><img alt="image-20231019163553432" src="../2.assets/image-20231019163553432.png" /></p>
+<ul>
+<li>两个 SSH Keys 都上传后，设置页面的情况如下：</li>
+</ul>
+<p><img alt="image-20231019163631462" src="../2.assets/image-20231019163631462.png" /></p>
+</li>
+</ul>
+<ul>
+<li>（做到这你不会逐渐忘记标题了吧）</li>
+<li>我们现在是想要把本地的插件文件夹和远程仓库联系起来，刚刚我们创建了远程仓库，还没有把它们联系起来</li>
+<li>来到虚拟机上，我们现在要在插件文件夹中打开终端，然后输入之前让你在记事本上先记住的命令，你可以看下面的截图来输入</li>
+</ul>
+<p><img alt="image-20231019164147852" src="../2.assets/image-20231019164147852.png" /></p>
+<p><img alt="image-20231019164502802" src="../2.assets/image-20231019164502802.png" /></p>
+<p><img alt="image-20231019164914244" src="../2.assets/image-20231019164914244.png" /></p>
+<p><img alt="image-20231019165109123" src="../2.assets/image-20231019165109123.png" /></p>
+<ul>
+<li>在输入 <code>git push</code> 命令时，第一次会提示如图所示的内容，请手动输入一个 yes，然后回车</li>
+<li>回到你的电脑，在你想放写代码的文件的地方打开终端（我就以桌面为演示），输入 <code>git clone "path"</code>，把这里的 <code>"path"</code> 改成<strong>仓库的地址</strong>，就可以把远程仓库里的内容克隆到本地。</li>
+</ul>
+<p><img alt="image-20231019165352787" src="../2.assets/image-20231019165352787.png" /></p>
+<ul>
+<li>（仓库的地址可以在这里找到）</li>
+</ul>
+<p><img alt="image-20231019165515217" src="../2.assets/image-20231019165515217.png" /></p>
+<ul>
+<li>好了，我们费了这么大周折，才算把远程仓库配好！接下来，我们就会在自己的电脑上进行插件的撰写</li>
+</ul>
+</details>
+<h2 id="撰写第一个插件-auto_pull">撰写第一个插件 <code>auto_pull</code><a class="headerlink" href="#撰写第一个插件-auto_pull" title="Permanent link">&para;</a></h2>
+<p>经过上面的配置，现在我们在自己的电脑上就可以撰写插件。</p>
+<p>在 VS Code 中打开刚刚克隆下来的文件夹，我们只需要修改 <code>__init__.py</code> 这个文件就可以了。</p>
+<ul>
+<li>清除里面的所有内容，将我下面写好的代码复制进去就可以了。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">nonebot</span> <span class="kn">import</span> <span class="n">on_keyword</span>
+<span class="kn">from</span> <span class="nn">nonebot.typing</span> <span class="kn">import</span> <span class="n">T_State</span>
+<span class="kn">from</span> <span class="nn">nonebot.adapters.onebot.v11</span> <span class="kn">import</span> <span class="n">PrivateMessageEvent</span><span class="p">,</span> <span class="n">Bot</span>
+<span class="kn">from</span> <span class="nn">nonebot.permission</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">nonebot</span> <span class="kn">import</span> <span class="n">require</span>
+<span class="kn">from</span> <span class="nn">nonebot.log</span> <span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">scheduler</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s2">&quot;nonebot_plugin_apscheduler&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scheduler</span>
+<span class="k">except</span> <span class="ne">BaseException</span><span class="p">:</span>
+    <span class="n">scheduler</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">opt</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+    <span class="s2">&quot;已检测到软依赖&lt;y&gt;nonebot_plugin_apscheduler&lt;/y&gt;, &lt;g&gt;开启定时任务功能&lt;/g&gt;&quot;</span>
+    <span class="k">if</span> <span class="n">scheduler</span>
+    <span class="k">else</span> <span class="s2">&quot;未检测到软依赖&lt;y&gt;nonebot_plugin_apscheduler&lt;/y&gt;，&lt;r&gt;禁用定时任务功能&lt;/r&gt;&quot;</span>
+<span class="p">)</span>
+
+<span class="n">admin_user</span> <span class="o">=</span> <span class="mi">1025890895</span>
+<span class="n">repo_directory</span> <span class="o">=</span> <span class="s2">&quot;/home/ubuntu/Desktop/new_qq_bot/plugins&quot;</span>
+
+<span class="c1"># 每日定时执行git pull</span>
+<span class="k">def</span> <span class="nf">git_pull</span><span class="p">():</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">repo_directory</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;git pull&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">status</span>
+
+<span class="c1"># 被动执行git pull</span>
+<span class="n">gitpull</span> <span class="o">=</span> <span class="n">on_keyword</span><span class="p">(</span><span class="s1">&#39;pull&#39;</span><span class="p">)</span>
+<span class="nd">@gitpull</span><span class="o">.</span><span class="n">handle</span><span class="p">()</span>
+<span class="c1"># 处理私聊消息</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">gitpull_handle</span><span class="p">(</span><span class="n">bot</span><span class="p">:</span> <span class="n">Bot</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PrivateMessageEvent</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">T_State</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="n">admin_user</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">git_pull</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">gitpull</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s1">&#39;更新成功&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">gitpull</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s1">&#39;更新失败&#39;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">periodic</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">git_pull</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">scheduler</span><span class="p">:</span>
+    <span class="c1"># 每过10分钟执行一次</span>
+    <span class="n">scheduler</span><span class="o">.</span><span class="n">add_job</span><span class="p">(</span><span class="n">periodic</span><span class="p">,</span> <span class="s2">&quot;cron&quot;</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="s1">&#39;*/10&#39;</span><span class="p">,</span> <span class="n">misfire_grace_time</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>
+<p>这里面有三个地方你可能需要更改：</p>
+<ol>
+<li><code>admin_user = 1025890895</code>，需要填你自己的 QQ 号（不是机器人的），机器人只会对这个 QQ 号发来的消息做回应</li>
+<li><code>repo_directory = "/home/ubuntu/Desktop/new_qq_bot/plugins"</code>，需要你改成虚拟机上插件的真实位置（如果你是跟着我做的，可能只有这个项目名 new_qq_bot 需要改一下）</li>
+<li>最后一句 <code>minute='*/10'</code>，表示每 10 分钟执行一次，你可以自己改成想要的时间，或者直接把这个 if 语句块删了，只允许手动执行</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>修改好后，保存，在 VS Code 左侧提交并同步更改，等待同步完成。</li>
+</ul>
+<p><img alt="image-20231019172434873" src="../2.assets/image-20231019172434873.png" /></p>
+<ul>
+<li>现在，转到虚拟机上面，在插件文件夹下手动运行一次 <code>git pull</code>。</li>
+</ul>
+<p><img alt="image-20231019172623687" src="../2.assets/image-20231019172623687.png" /></p>
+<ul>
+<li>然后输入 <code>cd ..</code>（两个点）回到上级，输入 <code>nb plugin</code>，选择<strong>安装插件到当前项目</strong><ul>
+<li>这是因为我们的插件中有定时的操作，依赖于商店中一个名为定时器的插件，我们需要从商店中安装这个插件（名字叫 <code>nonebot_plugin_apscheduler</code>）</li>
+<li>不是说我们自己写的插件也需要这样才能安装，这只是从商店安装别人写好的插件！</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20231019172748757" src="../2.assets/image-20231019172748757.png" /></p>
+<p><img alt="image-20231019172944694" src="../2.assets/image-20231019172944694.png" /></p>
+<ul>
+<li>安装好后，按照之前说的方法，启动 nonebot 和 go-cqhttp，打开服务</li>
+<li>给 Bot 私聊发消息（pull），如果收到回复，表示这个流程就对了</li>
+</ul>
+<p><img alt="image-20231019173406849" src="../2.assets/image-20231019173406849.png" /></p>
+<ul>
+<li>你还可以再看一眼虚拟机中的 nonebot 终端，会输出 pull 的执行结果<ul>
+<li>这里因为我没有对远程仓库做任何更改，所以执行的结果是提示<strong>已经是最新的。</strong></li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20231019173443213" src="../2.assets/image-20231019173443213.png" /></p>
+<h2 id="今后如何撰写插件">今后如何撰写插件<a class="headerlink" href="#今后如何撰写插件" title="Permanent link">&para;</a></h2>
+<ul>
+<li>今后，你在自己的电脑上撰写插件即可<ul>
+<li>比如说，要创建一个新的插件，就在你自己电脑上操作</li>
+<li>创建一个新的文件夹，文件夹名字就是插件名字（用英文）</li>
+<li>把 auto_pull 文件夹里的 <code>config.py</code> 和 <code>__init__.py</code> 两个文件复制过来，前者不做任何更改，后者随意更改</li>
+</ul>
+</li>
+<li>撰写完毕后，提交同步远程仓库</li>
+<li>给你的机器人账号私聊发消息 pull，等待告知更新成功还是失败</li>
+</ul>
+<p>总而言之，如果遵循这套流程，就不用管虚拟机了。</p>
+<blockquote>
+<p>然而 Debug 的时候可能还是需要上去，请注意不要在虚拟机上直接修改插件代码，只能在你自己的电脑上修改，否则会出乱子。</p>
+<p>如果你是 Git 高手，应该知道这个乱子怎么解决，不过这个教程大多面向不怎么会 Git 的同学，就不赘述了，从表面上解决这个问题比较好。</p>
+<p>当然，学校的虚拟机有时会维护，会导致关机重启，这样的话就需要你上虚拟机重新把服务打开。</p>
+</blockquote>
+<p>（撰写：黄瑞轩）</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      
+    
+  </body>
+</html>
