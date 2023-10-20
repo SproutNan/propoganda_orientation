@@ -712,7 +712,7 @@
             <span class="k">await</span> <span class="n">gitpull</span><span class="o">.</span><span class="n">finish</span><span class="p">(</span><span class="s1">&#39;更新失败&#39;</span><span class="p">)</span>
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">periodic</span><span class="p">():</span>
-    <span class="k">await</span> <span class="n">git_pull</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">git_pull</span><span class="p">()</span>
 
 <span class="k">if</span> <span class="n">scheduler</span><span class="p">:</span>
     <span class="c1"># 每过10分钟执行一次</span>
